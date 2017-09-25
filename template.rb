@@ -30,6 +30,7 @@ gem "carrierwave"
 gem "devise"
 gem "kaminari"
 gem "mini_magick"
+gem "slim-rails"
 
 def generating
   environment 'config.action_mailer.default_url_options = { host: "http://localhost:3000" }', env: 'development'
@@ -44,13 +45,13 @@ end
 
 def injecting
   environment "
-  config.generators do |g|
-    g.helper false
-    g.assets false
-    g.view_specs false
-    g.test_framework :rspec
-    g.factory_girl dir: \"spec/factories\"
-  end
+    config.generators do |g|
+      g.helper false
+      g.assets false
+      g.view_specs false
+      g.test_framework :rspec
+      g.factory_girl dir: \"spec/factories\"
+    end
   "
 
   file ".rubocop.yml", <<-CODE
